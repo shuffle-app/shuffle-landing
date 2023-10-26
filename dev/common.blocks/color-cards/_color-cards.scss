@@ -1,0 +1,112 @@
+.color-cards {
+    padding-bottom: 5rem;
+    @include screen($mobile) {
+        padding-bottom: 40px;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        @include screen($mobile) {
+            gap: 8px;
+        }
+    }
+}
+
+.color-card {
+    width: calc(50% - 10px);
+    border-radius: $radius_m;
+    overflow: hidden;
+    position: relative;
+    @include screen($mobile) {
+        width: calc(50% - 4px);
+    }
+    img {
+        width: 100%;
+    }
+    &__h {
+        color: $solid-dark-black;
+        font-size: 60px;
+        line-height: 110%;
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        z-index: 12;
+        @include screen(1000px) {
+            font-size: 40px;
+        }
+        @include screen($tablet) {
+            font-size: 2rem;
+            bottom: 9px;
+            left: 17px;
+        }
+        @include screen($mobile) {
+            font-size: 20px;
+            bottom: 3px;
+            left: 11px;
+        }
+    }
+
+    &_yellow {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            background: linear-gradient(0deg, #FCE600 0%, rgba(252, 230, 0, 0.00) 44.87%);
+            width: 100%;
+            height: 100%;
+            bottom: 0;left: 0;
+            z-index: 11;
+        }
+    }
+
+&_long {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+
+        @include screen (850px) {
+            flex-wrap: wrap;
+        }
+        @include screen($mobile) {
+            gap: 8px;
+        }
+        picture {
+            display: block;
+            border-radius: $radius_m;
+            overflow: hidden;
+            flex: 1;
+            
+            img {
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+        .color-card__h {
+            order: 2;
+            position: inherit;
+            width: 340px;
+            color: $light-typography-color-heading-button-text;
+            font-size: 47px;
+            bottom: 0;left: 0;
+            width: 368px;
+            padding-top: 1rem;
+            padding-left: 1rem;
+
+            @include screen(1000px) {
+                font-size: 40px;
+            }
+            @include screen(850px) {
+                width: 100%;
+                padding: 0;
+            }
+            @include screen($tablet) {
+                font-size: 2rem;
+            }
+            @include screen($mobile) {
+                font-size: 20px;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+mixin social-list
+	ul.social-list(class!=attributes.class)
+		each item in attributes.items
+			li
+				a(href="#" target="_blank" rel="nofollow")
+					+icon(item,'some_class')

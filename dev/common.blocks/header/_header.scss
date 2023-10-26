@@ -1,0 +1,34 @@
+.header {
+    padding-top: 40px;
+    padding-bottom: 25px;
+
+    @include screen($tablet) {
+        padding-top: 2rem;
+    }
+    @include screen($mobile) {
+        padding-block: 1rem;
+    }
+    .container {
+        display: flex;
+    }
+    &__login {
+        margin-left: auto;
+        height: 56px;
+        width: 56px;
+        border-radius: 40px;
+        background-color: $opacity-neutral-neutral-24;
+        backdrop-filter: blur($blur);
+        color: $light-typography-color-heading-button-text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background-color: $opacity-neutral-neutral-16;
+        }
+
+        @include screen($mobile) {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}

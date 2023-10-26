@@ -1,0 +1,66 @@
+                $burgerColor: #000;
+                $burgerColorActive: #fff;
+
+
+
+/************************************
+* Sizez & Spaces
+************************************/
+$container: 1440px;
+$tablet:768px;
+$mobile:500px;
+
+                $gap_l: 2rem;
+                $gap_m: 1rem;
+                $gap_s: .5rem;
+
+/************************************
+* Text styles
+************************************/
+
+//font-family
+$font : 'Unbounded', sans-serif;
+
+
+//Text size
+$fs_s: .75rem;
+$fs_m: 1rem;
+$fs_l: 1.25rem;
+
+//Header size
+$fs_h1: 3rem;
+$fs_h2: 2rem;
+                $fs_header_3: 1rem;
+
+/************************************
+* Colors
+************************************/
+$solid-dark-white:#fff;
+$light-surface-surface-1: #F7F7F9;
+$solid-dark-typography-body-text: #EEEEEF;
+$solid-dark-typography-muted-text:#7E8083;
+
+$light-typography-color-heading-button-text: #232323;
+$solid-dark-black:#000;
+
+$opacity-neutral-neutral-24: rgba(168, 170, 174, 0.24);
+$opacity-neutral-neutral-16: rgba(168, 170, 174, 0.16);
+
+$blur: 50px;
+
+/************************************
+* Radius
+************************************/
+$radius_m : 15px;
+$radius_s : 5px;
+
+/************************************
+* Shadows
+************************************/
+        $shadow: 0 0 10px rgba(0,0,0,0.5);
+
+/************************************
+* Animation
+************************************/
+$transition: .3s ease;
+$transition_l: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);

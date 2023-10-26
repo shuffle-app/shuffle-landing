@@ -1,0 +1,52 @@
+extends ../layout/main
+
+block variables
+	- var title = "Index Start"
+
+block content
+	.container
+		h1 Hi gays & #[b girls]
+		p What your name?
+
+		form 
+			input(type="email" placeholder="Yout email...")
+			button(type="submit") Go go go
+		
+		
+
+
+		.share
+			.share__toggle
+				+icon('3camer','class_icon')
+
+
+		+toggle_panel('togglePanel','class_name',[
+			{
+				headerContent: ' 1',
+				bodyContent: 'Contey toggle'
+			},
+			{
+				headerContent: ' 2',
+				bodyContent: 'Conteoggle'
+			},	
+			{
+				headerContent: ' 3',
+				bodyContent: 'Contentoggle'
+			}
+
+		])
+
+
+
+
+
+
+		+icon('arrow-down')
+		+icon('wallet')
+		.someclass asdf
+			.someclass__inner inner
+		//+webp(name, type='jpg', lazy,  alt)
+
+		img(src="images/_MG_5216.JPG" alt="")
+		+picture('images/_MG_5216', ['jpg','webp'])
+	

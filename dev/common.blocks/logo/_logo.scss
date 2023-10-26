@@ -1,0 +1,46 @@
+/*************************
+*Лого с фоном
+*************************/
+.logo {
+    display: inline-block;
+    height: 55px;
+    width: 118px;
+
+    background: url(../img/logo.svg) center no-repeat;
+    background-size: contain;
+    text-indent: -100px;
+    overflow: hidden;
+    @include screen($mobile) {
+        width: 86px;
+        height: 40px;
+    }
+    &_footer {
+        background-image: url(../img/logo-white.svg);
+    }
+
+}
+
+// .logo.logo_size_s {
+//     height: $gap_m;
+//     width: $gap_m;
+// }
+
+/*************************
+*Лого с картинкой
+*************************/
+// .logo-img {
+//     display: inline-block;
+//     height: $gap_l;
+//     width: auto;
+
+//     img {
+//         display: block;
+//         width: 100%;
+//         height: 100%;
+//         object-fit: contain;
+//     }
+// }
+
+// .logo-img.logo_size_s {
+//     height: $gap_m;
+// }

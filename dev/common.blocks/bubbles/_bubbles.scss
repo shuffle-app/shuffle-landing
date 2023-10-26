@@ -1,0 +1,132 @@
+.bubbles {
+    padding-top: 80px;
+    padding-bottom: 43px;
+    h2 {
+        font-size: 34px;
+        line-height: 1.1;
+        margin: 0 0 40px;
+    }
+    @include screen(768px) {
+        display: none;
+    }
+}
+
+#bubbles {
+    position: relative;
+    margin:auto;
+    top:0;bottom:0;left:0;right:0;
+    // width: 60%;
+    height: 750px;
+    @include screen(1180px) {
+        width: 90%;
+    }
+  }
+  
+  #bubbles_svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dot {
+    width: 20px;
+    aspect-ratio: 1;
+    background: url(../img/bubble.svg) center no-repeat;
+    background-size: contain;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eeeeef;
+    font-size: 12px;
+    line-height: 1;
+    padding: 35px;
+    text-align: center;
+    // animation: fly linear 5s infinite;
+    transition: transform 4s linear;
+
+  }
+  .dot {
+    &_s {
+        width: 102px;
+        padding-inline: 10px;
+    }
+    &_ss {
+        width: 91px;
+        padding-inline: 14px;
+    }
+    &_icon {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+        padding-left: 71px;
+        img {
+            position: absolute;
+            top: 36px;
+            left: -2px;
+        }
+    }
+  }
+  
+  #bubbles_svg path {
+    fill: none;
+    animation: fadeBubbles 4s ease-in-out infinite;
+    // vector-effect: non-scaling-stroke;
+    stroke-width: 1px;
+    // stroke: #bd6565;
+    transition: all .1s;
+    position: relative;
+    // stroke: url(#path_gradient);
+  }
+  
+#bubbles_svg {
+    & path:nth-child(4n) {
+        stroke: url(#path_gradient1);
+        animation-delay: 1s;
+    }
+    & path:nth-child(4n+1) {
+        stroke: url(#path_gradient2);
+        animation-delay: 2s;
+    }
+    & path:nth-child(4n+2) {
+        stroke: url(#path_gradient3);
+        animation-delay: 3s;
+    }
+    & path:nth-child(4n+3) {
+        stroke: url(#path_gradient4);
+    }
+}
+  @keyframes fadeBubbles {
+    15% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    85% {
+       opacity: 1;
+    }
+  }
+  @keyframes fly {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(50px, 10px);
+    }
+
+    50% {
+        transform: translate(90px, 40px);
+    }
+
+    75% {
+        transform: translate(50px, 70px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}

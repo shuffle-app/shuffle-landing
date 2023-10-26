@@ -1,0 +1,72 @@
+.pre-footer {
+    background: url('../img/prefooter1.svg') left 0 bottom -280px no-repeat;
+    position: relative;
+    overflow: hidden;
+    @include screen($tablet) {
+        
+        background-position-x: - 135px;
+    }
+    @include screen($mobile) {
+        background-position-x: - 265px;
+    }
+    &::after {
+        @extend %ba;
+            position: absolute;
+            z-index: 0;
+        background: url('../img/prefooter2.png')  0  0 no-repeat;
+        width: 633px;
+        height: 590px;
+        right: 0;
+        top: 0;
+        @include screen($tablet) {
+            background-size: 400px;
+            background-position: right 0 bottom 0;
+        }
+        @include screen($mobile) {
+            background-size: 300px;
+            background-position: right -18px bottom 85px
+        }
+    }
+    .container {
+        height: 449px;
+        position: relative;
+        z-index: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 60px;
+        @include screen($tablet) {
+            height: 391px;
+            align-items: flex-start;
+            padding-top: 80px;
+        }
+        @include screen($mobile) {
+            height: 352px;
+            padding-top: 40px;
+        }
+        &::before {
+            @extend %ba;
+            position: absolute;
+            z-index: -1;
+        }
+        &::before {
+            background: url('../img/logo.svg') left 0 bottom -123px no-repeat;
+            background-size: 700px;
+            width: 700px;
+            height: 100%;            
+            left: 39px;
+            top: 0;
+            @include screen($tablet) {
+                background-size: 386px;
+                background-position: 24px 78%;
+                left: 9px;
+            }
+            @include screen($mobile) {
+                background-size: 168px;
+                background-position: 5px 46%;
+            }
+        }
+
+    }
+}

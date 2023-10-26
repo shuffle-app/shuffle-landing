@@ -1,0 +1,132 @@
+.modal {
+    padding: 40px;
+    position: fixed;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #cbccce;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 24px;
+    // background:  rgba(168, 170, 174, 0.16);
+    // backdrop-filter: blur(50px);
+    width: 560px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    // transition: all $transition;
+    
+    img {
+        margin-block: 14px;
+    }
+    &__header {
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.1;
+        padding-right: 40px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    &__h2 {
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 110%;
+        position: absolute;
+        width: 100px;
+        left: 50%;
+        margin-left: -50px;
+        top: 6rem;
+    }
+    &__close {
+        color: #EEEEEF;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    &::after {
+        @extend %ba;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0; 
+        position: absolute;
+        background: rgba(168,170,174,.16);
+        backdrop-filter: blur(50px);
+        z-index: -2;
+    }
+}
+.modal#func_favorites {
+    width: 445px;
+}
+.modal#func_properties {
+    width: 500px;
+}
+.modal#func_business {
+    width: 346px;
+}
+.modal#func_shuffle {
+    width: 548px;
+    height: 583px;
+    img {
+        position: absolute;
+        width: 100%;
+        top: 0;left: 0;
+        margin: 0;
+        z-index: -1;
+    }
+    .modal__body {
+        height: calc(100% - 28px);
+        display: flex;
+        p {
+            margin-top: auto;
+        }
+    }
+}
+.modal#func_feelings {
+    width: 367px;
+}
+.modal#func_spinner {
+    width: 387px;
+    height: 340px;
+    border-radius: 30px;
+    img {
+        position: absolute;
+        width: 100%;
+        top: 0;left: 0;
+        margin: 0;
+        z-index: -1;
+    }
+}
+.modal#func_points {
+    width: 422px;
+    img {
+        max-width: none;
+        margin-inline: -20px;
+        position: relative;
+        left: 20px;
+    }
+}
+.modal#func_profile {
+    width: 422px;
+}
+.modal#func_connections {
+    width: 340px;
+    img {
+        margin-inline: -40px;
+        max-width: none;
+    }
+
+}
+.modal.opened {
+    opacity: 1;
+    visibility: visible;
+}
+
+

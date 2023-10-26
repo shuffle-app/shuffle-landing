@@ -1,0 +1,101 @@
+html {
+	font-size: 16px;
+}
+body {
+	font-family: $font;
+ 	font-size: $fs_m;
+	font-style:normal;
+	font-weight: 300;
+	line-height: 1.5;
+	color: $light-typography-color-heading-button-text;
+
+	background-color: $light-surface-surface-1;
+
+	@extend %scrollbar;
+	@include screen(768px) {
+		overflow-x: hidden;
+	}
+}
+
+a {
+	color: orange;
+	transition: all $transition;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+picture img {
+	width: 100%;
+}
+b {
+	font-weight: 500;
+}
+p {
+	margin: 0 0 1em 0;
+}
+
+				h1 {
+					font-weight: bold;
+					font-size: $fs_l;
+					background: #b3d7ff;
+					margin-bottom: 1rem;
+				}
+h2 {
+	font-size: 3rem;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 130%;
+	margin-bottom: 1rem;
+}
+
+.container {
+	max-width: $container;
+	padding-inline: 40px;
+	margin: 0 auto;
+
+	@include screen($tablet) {
+		padding-inline: 2rem;
+	}
+	@include screen($mobile) {
+		padding-inline: 1rem;
+	}
+}
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+    // transition: all $transition;
+}
+.text-gradient {
+	background: linear-gradient(91deg,#e32900 -12.75%,#c6e216 60.12%,#d808fa 105.78%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+				label.error {
+					color: red;
+					input {
+						border-color: red;
+					}
+				}
+
+				input {
+					width: 100%;
+					padding: 1rem;
+					border: 1px solid grey;
+					border-radius: 10px;
+					transition: border $transition;
+					color: grey;
+					
+					&::placeholder {
+						color: #eee;
+					}
+
+					&:focus {
+						border-color: #aaa;
+					}
+				}
+				textarea {
+					height: 10rem;
+				}

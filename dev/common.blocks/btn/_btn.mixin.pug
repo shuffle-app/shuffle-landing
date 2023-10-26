@@ -1,0 +1,13 @@
+mixin btn
+	if (!attributes.type)
+		a.btn(href=attributes.href ? attributes.href : '#' title="" class!=attributes.class)
+			if block
+				block
+			else
+				= "default content"
+	else
+		button.btn(type=attributes.type class!=attributes.class)
+			if block
+				block
+			else
+				= "default content"

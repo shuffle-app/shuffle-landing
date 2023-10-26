@@ -1,0 +1,12 @@
+%x {
+	background-color: #000;
+    width: 1.5rem;
+    height: 1px;
+    transform: rotate(45deg);
+    position: relative;
+    top: 10px;
+}
+%x-after {
+    transform: rotate(-45deg);
+    top: 9px;
+}

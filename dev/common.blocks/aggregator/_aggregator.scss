@@ -1,0 +1,50 @@
+.aggregator {
+    background: #000;
+    color: #fff;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    @include screen(768px) {
+        display: none;
+    }
+}
+.aggregator-row {
+    display: flex;
+    font-size: 3rem;
+    line-height: 1.3;
+    padding-bottom: 60px;
+    @include screen(1450px) {
+        font-size: 2.5rem;
+    }
+    @include screen(1180px) {
+        font-size: 2rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .text {
+        height: 330px;
+        width: 285px;
+        margin-top: auto;
+        p {
+            margin: 0;
+        }
+        @include screen(1180px) {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    }
+    .add-text {
+        height: 330px;
+        width: 400px;
+        margin-top: auto;
+        margin-left: 23px;
+        line-height: 150%;
+        @include screen(1180px) {
+            margin-left: 0;
+            text-align: center;
+            height: auto;
+        }
+    }
+}
+

@@ -1,0 +1,15 @@
+mixin logo
+	if (attributes.type == 'span')
+		span.logo(class!=attributes.class)
+			block
+	else
+		a.logo(href=attributes.href class!=attributes.class title=attributes.title)
+			block
+
+mixin logo-img
+	if (attributes.type == 'span')
+		span.logo-img(class!=attributes.class)
+			block
+	else
+		a.logo-img(href=attributes.href class!=attributes.class title=attributes.title)
+			block

@@ -1,0 +1,55 @@
+.slider-panel {
+    padding-top: 44px;
+    padding-bottom: 80px;
+    @include screen(768px) {
+        display: none;
+    }
+    p.lead {
+        color: #2D3645;
+        font-size: 34px;
+        line-height: 1.1;
+    }
+    //Задаем высоту для Сафари
+    .panel-slider .swiper-wrapper{
+        height: 740px;
+        @include screen(1330px) {
+            max-height: calc((100vw - -42px) * 0.45 + 87px);
+        }
+    }
+    .swiper-slide {
+        margin-top: 12px;
+        width: 1280px;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 1.1;
+        @include screen(1330px) {
+            max-width: 90%;
+        }
+        .text {
+            max-width: 1162px;
+            margin: 0 auto;
+            height: 100px;
+            @include screen(1080px) {
+                height: 118px;
+            }
+            @include screen(850px) {
+                font-size: 1.25rem;
+            }
+        }
+    }
+    .swiper-pagination {
+        margin-top: 25px;
+        position: initial;
+    }
+    .swiper-pagination-bullet {
+        opacity: 1;
+        background-color: #a8aaae;
+        width: 10px;
+        height: 10px;
+        margin: 0 9px !important;
+        transition: background $transition;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: #000;
+    }
+}

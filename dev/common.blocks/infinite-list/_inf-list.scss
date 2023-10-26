@@ -1,0 +1,21 @@
+.inf-list {
+    overflow: hidden;
+    
+    &__wrapper {
+        display: flex;
+        gap: 20px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+
+        &_right {
+            justify-content: flex-end;
+        }
+
+    }
+    .item {
+        flex-shrink: 0;
+    }
+    @include screen(768px) {
+        display: none;
+    }
+}

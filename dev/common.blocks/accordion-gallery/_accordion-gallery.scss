@@ -1,0 +1,251 @@
+.ac-gal {
+    flex:1;
+    &_l {
+        @include screen(1180px) {
+            width: 1075px;
+            max-width: 100%;
+        }
+        @include screen(920px) {
+            .accordion-gallery .item:not(.active) {
+                width: 60px;
+            }
+        }
+    }
+}
+
+.accordion-gallery {
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    overflow:hidden;
+    width: 1075px;
+    gap: .5rem;
+
+    min-width:600px;
+    max-width:1075px;
+    width:100%;
+    // width: 1070px;
+    
+    height:330px;
+
+    &_s {
+        width: 635px;
+    }
+    .item {
+       position: relative;
+       overflow:hidden;
+       width:80px;
+       cursor: pointer;
+       transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+       border-radius: $radius_s;
+        border: 1px solid #fff;
+
+        &::before {
+            @extend %ba;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: url(../img/aggregator/bg.svg) center no-repeat;
+            opacity: 1;
+            transition: opacity $transition_l;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slogan {
+            position: absolute;
+            top:0;
+            left: 0;
+            opacity: 0;
+            color: #000;
+            font-size: 34px;
+            line-height: 1.1;
+            transition: opacity $transition_l;
+            @include screen(1280px) {
+                font-size: 1.5rem;
+                max-width: 75%;
+            }
+        }
+        .num {
+            position: absolute;
+            top: 0;right: 0;
+            font-size: 70px;
+            font-weight: 700;
+            transition: top $transition_l, right $transition_l;
+            @include screen(1450px) {
+                font-size: 50px;
+                // right: 10px;
+            }
+        }
+        
+       
+        &.active {
+          flex-grow:10000;
+          max-width:547px;
+            &::before {
+                opacity: 0;
+            }
+            .slogan {
+                opacity: 1;
+            }
+            .num {
+                top: 0 !important;right: 20px !important;
+            }
+       }
+       &_s {
+        .item.active {
+            .num {
+                top: 9px !important;right: 15px !important;
+                }
+            }
+        }
+       &:not(.active) {
+          flex-grow:1;
+          width: 80px;
+       }
+
+    }
+    &_s {
+        .item {
+            &::before {
+                background-image: url('../img/aggregator/p1.png');
+            }
+        }
+    }
+ }
+
+
+ //position slogan & bg & num
+.accordion-gallery {
+    & .item:nth-child(1) {
+        .slogan {
+            top: 40px;
+            left: 40px;
+            width: 349px;
+        }
+    }
+    & .item:nth-child(2) {
+        .slogan {
+            top: 40px;
+            left: 40px;
+            width: 349px;
+        }
+        &::before {
+            background-position: -227px -3px;
+            background-size: 334px;
+        }
+    }
+    & .item:nth-child(3) {
+        .num {
+            top: 238px;
+            @include screen(1450px) {
+                top: 255px;
+            }
+        }
+        .slogan {
+            top: 128px;
+            left: 223px;
+            width: 300px;
+            @include screen(1450px) {
+                left: auto;
+                right: 0;
+            }
+            
+        }
+        &::before {
+            background-position: 0 -3px;
+            background-size: 334px;
+        }
+    }
+    & .item:nth-child(4) {
+        .num {
+            top: 120px;
+        }
+        .slogan {
+            top: 128px;
+            left: 40px;
+            width: 349px;
+        }
+        &::before {
+            background-position:-204px -146px;
+            background-size: 522px;
+        }
+    }
+    & .item:nth-child(5) {
+
+        .slogan {
+            top: 128px;
+            left: 40px;
+            width: 349px;
+        }
+        &::before {
+            background-position: -318px -43px;
+            background-size: 470px;
+        }
+    }
+    & .item:nth-child(6) {
+        .num {
+            top: 120px;
+        }
+        .slogan {
+            top: 40px;
+            left: 40px;
+            width: 310px;
+            color: #fff;
+        }
+        &::before {
+            background-position:-0 -210px;
+            background-size: 538px;
+        }
+    }
+    & .item:nth-child(7) {
+        .num {
+            top: 238px;
+            @include screen(1450px) {
+                top: 255px;
+            }
+        }
+        .slogan {
+            top: 115px;
+            left: 198px;
+            width: 349px;
+            @include screen(1450px) {
+                left: 150px;
+                width: 255px;
+            }
+            @include screen(1280px) {
+                 left: auto;
+                 right: 0;
+            }
+        }
+        &::before {
+            background-position: -367px -58px;
+            background-size: 446px;
+        }
+    }
+}
+
+.accordion-gallery_s {
+    & .item:nth-child(1) {
+        .slogan {
+            top: 50px;
+            left: 44px;
+        }
+    }
+    & .item:nth-child(2) {
+        .slogan {
+            top: 40px;
+            left: 40px;
+            width: 310px;
+        }
+        .num {
+            top: 218px;
+        }
+        &::before {
+            background-position: -448px -75px;
+            background-size: 973px;
+        }
+    }
+}

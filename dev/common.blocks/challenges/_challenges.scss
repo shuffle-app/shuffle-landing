@@ -1,0 +1,38 @@
+.challenges {
+    padding-top: 80px;
+    padding-bottom: 10px;
+
+    @include screen(768px) {
+        display: none;
+    }
+    .container {
+        position: relative;
+    }
+    h2 {
+        position: absolute;
+        top: -2px;
+        left: 90px;
+        color: #fff;
+        line-height: 1.25;
+        top: -2px;
+        left: 90px;
+        width: 670px;
+        @include screen(1000px) {
+            font-size: 2.5rem;   
+        }
+        
+        span {
+            border-radius: 5px;
+            background: rgba(185, 131, 157, 0.28);
+            backdrop-filter: blur(25px);
+            display: inline-block;
+            padding: 0 12px 0 4px;
+        }
+    }
+
+    &__bg {
+        display: block;
+        border-radius: $radius_m;
+        overflow: hidden;
+    }
+}

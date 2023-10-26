@@ -1,0 +1,249 @@
+.download {
+    background-color: #000;
+    overflow: clip;
+    color: $solid-dark-typography-body-text;
+
+    @include screen($tablet) {
+        padding-bottom: 33px;
+    }
+    @include screen($mobile) {
+        padding-bottom: 20px;
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+        padding-top: 80px;
+        @include screen ($tablet) {
+            padding-top: 31px;
+        }
+        @include screen ($mobile) {
+            padding-top: 24px;
+        }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            background-image: url(../img/download-bg1.svg);
+            // background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+
+            @include screen($tablet) {
+                background-position: -92% 24%;
+                background-size: 767px;
+                background-repeat: no-repeat;
+            }
+            @include screen($mobile) {
+                background-position: 88% 13%;
+                background-size: 537px;
+            }
+        }
+    }
+
+    &__header {
+        color: rgb(255 255 255 / 24%);
+        font-size: 47px;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 2rem;
+
+        @include screen($tablet) {
+            color: rgb(255 255 255 / 50%);
+            font-size: 2rem;
+        }
+        @include screen($mobile) {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+    }
+
+    &__slogan {
+        display: block;
+        font-size: 120px;
+        font-weight: 200;
+        line-height: 110%;
+        text-transform: lowercase;
+        margin-bottom: 254px;
+        @include screen(1080px) {
+            font-size: 70px;
+        }
+        @include screen($tablet) {
+            font-size: 60px;
+            max-width: 330px;
+            margin-bottom: 24px;
+        }
+        @include screen($mobile) {
+            font-size: 48px;
+            
+        }
+    }
+
+    &__lead {
+        display: block;
+        color: #FFF;
+        font-size: 48px;
+        line-height: 130%;
+        margin-bottom: 2rem;
+        @include screen (1080px) {
+            font-size: 2rem;
+        }
+        @include screen ($tablet) {
+            margin-top: -20px;
+            max-width: 482px;
+        }
+        @include screen ($mobile) {
+            font-size: 20px;
+            margin-bottom: 25px;
+            margin-top: 0;
+        }
+    }
+}
+#shuffle-logo {
+    position: absolute;
+    z-index: -1;
+    left: 720px;
+    top: 0;
+    opacity: 35%;
+    width: 650px;
+    @include screen($tablet) {
+        width: 341px;
+        left: auto;
+        right: 0;
+        top: 7.5rem;
+    }
+    @include screen($mobile) {
+        width: 246px;
+        right: 1rem;
+        top: 3rem
+    }
+}
+.float-img-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1208px;
+    margin-inline: auto;
+    padding-left: 40px;
+    padding-right: 18px;
+    padding-bottom: 110px;
+    gap: 1rem;
+
+    @include screen(768px) {
+        flex-direction: column;
+        padding: 0;
+    }
+    .img {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 3rem;
+        transform: translateY(-5px);
+        width: 332px;
+        @include screen(768px) {
+            display: none;
+        }
+    }
+    .text {
+        max-width: 720px;
+        width: 63%;
+        @include screen(768px) {
+            width: 100%;
+        }
+    }
+}
+.apps {
+    @include screen($tablet) {
+        margin-top: -10px;
+    }
+    @include screen($mobile) {
+        margin-top: 0;
+    }
+    &__header {
+        color: $solid-dark-typography-muted-text;
+        display: block;
+        margin-bottom: 11px;
+    }
+    
+    &__links {
+        display: flex;
+        gap: 12px;
+        a:hover {
+            box-shadow: 0px 0px 12px 0px rgba(239, 214, 204, 0.50);
+        }
+        @include screen(768px) {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.features {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 5rem;
+    overflow: visible;
+    @include screen(768px) {
+        display: none;
+    }
+    .item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex: 1;
+        border-radius: 8px;
+        background: var(--opacity-neutral-neutral-8, rgba(168, 170, 174, 0.08));
+        backdrop-filter: blur(0.8px);
+        padding: 1rem;
+        transition: all $transition;
+        position: relative;
+        min-width: 300px;
+        picture {
+            position: relative;
+            flex-shrink: 0;
+            top: 0;
+            display: block;
+            border-radius: $radius_s;
+            overflow: hidden;
+            box-shadow: 0px 0px 0px 4px rgba(153, 153, 153, 0.15);
+            width: 100px;
+            transition: top $transition;
+        }
+
+        &::before {
+            @extend %ba;
+            position: absolute;
+            top: 1.5rem;left: 1.5rem;
+            width: calc(100% - 3rem);
+            height: calc(100% - 3rem);
+            filter: blur(25px); 
+            z-index: -1;
+            opacity: 0;
+            transition: all $transition;
+            border-radius: 8px;;
+        }
+    }
+    .item:nth-child(1):before {
+        background: linear-gradient(264deg, #D12728 -183.11%, #EB6410 187.11%);
+    }
+    .item:nth-child(2):before {
+        background: linear-gradient(264deg, #6CAB8B -183.11%, #66A3B3 187.11%);
+    }
+    .item:nth-child(3):before {
+        background: linear-gradient(266deg, #961632 -98.54%, #CB2387 193.26%);
+    }
+    .item:nth-child(4):before {
+        background: linear-gradient(266deg, #079DBE -98.54%, #D558BA 193.26%);
+    }
+
+    .item:hover {
+        &::before {
+            opacity: 1;
+        }
+        picture {
+            top: -36px;
+        }
+    }
+}
+
+

@@ -1,0 +1,156 @@
+//- extends layout/main
+
+//- block variables
+//- 	- var title = "Index Start"
+
+//- block content
+//- 	main
+//- 		.container
+//- 			h1 Elements (common.blocks по БЭМ)
+//- 			+lazyPicture('img/header_main', ['webp','jpg'], ['1001px','768px','486px'], ['1x', '2x'])
+//- 			.elements
+//- 				h1 .btn
+//- 				+btn Кнопка
+//- 				+btn.btn_disabled Кнопка
+//- 				+btn.btn_size-s Кнопка 
+//- 				+btn(type="submit") Кнопка 
+
+//- 			.elements
+//- 				h1 .textbox
+//- 				+textbox
+//- 				+textbox(type="password" placeholder="Прль")
+//- 				+textbox(type="password" placeholder="Прль" label="asdf" )
+//- 				+textbox(placeholder="asdfasf").error
+//- 				+textbox(type="textarea" placeholder="Введите текст").error
+//- 			.elements
+//- 				h1 .radio
+//- 				+radio(name="r0" checked=true value="val2" id="id1")
+//- 				+radio(name="r0" value="val1" id="id2")
+//- 				+radio(name="r1" value="1" label="Радио1"  id="id3")
+//- 				+radio(name="r1" value="0" id="id4")
+//- 			.elements
+//- 				h1 .radio-group
+//- 				+radio-group(name="ex1" items=[
+//- 					{id:"r2",value:1,label:'label1'},
+//- 					{id:"r3",value:2,label:'label2'},
+//- 					{id:"r4",value:3,label:'label3'},
+//- 				])
+//- 			.elements
+//- 				h1 .checkbox
+//- 				+checkbox(name="c1" checked=true value="val2" id="c1")
+//- 				+checkbox(name="c2" value="val1" id="c3")
+//- 				+checkbox(name="cc34" value="1" label="Радио1"  id="c2")
+//- 				+checkbox(name="c4" value="0" id="c4")
+//- 			.elements
+			
+//- 			.elements
+				
+//- 			.elements
+//- 				h1 .tabs
+//- 				p Есть анимированная версия и без, править в _tabs_tab.scss, без анимации просто подчеркивается tab
+//- 				+tabs(items=[
+//- 					{id:'about', title: 'About Us', content:'aaaa a a a aaaa aaaa'},
+//- 					{id:'desr', title: 'Description', content:'Description a Description a Description aaaa'},
+//- 					{id:'plus', title: 'Pluses', content:'Pluses a Pluses Pluses Pluses Pluses'},
+//- 				])
+//- 				+tabs(items=[
+//- 					{id:'about', title: 'About Us', content:'aaaa a a a aaaa aaaa'},
+//- 					{id:'desr', title: 'Description', content:'Description a Description a Description aaaa'},
+//- 					{id:'plus', title: 'Pluses', content:'Pluses a Pluses Pluses Pluses Pluses'},
+//- 				])
+//- 			.elements
+//- 				h1 .togglePanel
+//- 				+toggle-panel(items=[
+//- 					{
+//- 						title: 'Заголовок 11',
+//- 						content: 'Contey toggle'
+//- 					},
+//- 					{
+//- 						title: 'Заголовок 2',
+//- 						content: 'Conteoggle'
+//- 					},	
+//- 					{
+//- 						title: 'Загловок 3',
+//- 						content: 'Contentoggle'
+//- 					}
+
+//- 				])
+				
+//- 			.elements
+//- 				h1 .pagination
+//- 				+pagination(pages=5 active=2)
+//- 			.elements
+//- 				h1 .logo
+//- 				p .logo (картинка фоном)
+//- 				+logo(type="link") Logo
+//- 				+logo(type="link").logo_size_s Logo
+//- 				+logo(type="span") Logo
+//- 				p .logo-img (картинка фоном)
+//- 				+logo-img(type="link")
+//- 					img(src="img/logo.svg" alt="")
+//- 				+logo-img(type="link"  class="logo_size_s")
+//- 					img(src="img/logo.svg" alt="")
+//- 				+logo-img(type="span")
+//- 					img(src="img/logo.svg" alt="")
+//- 			.elements
+//- 				h1 .form
+//- 				+form(items=[
+//- 					{
+//- 						name: 'Имя',
+//- 						type: 'text',
+//- 						class: '',
+//- 						placeholder: 'Имя (плейсхолдер)'
+//- 					},
+//- 					{
+//- 						name: 'Email',
+//- 						type: 'text',
+//- 						class: 'error',
+//- 					},
+//- 					{
+//- 						name: 'Сообщение',
+//- 						type: 'textarea',
+//- 						class: '',
+//- 					},
+					
+
+//- 				]) Отправить
+
+//- 				//- +textbox
+//- 				//- +textbox(type="password" placeholder="Прль")
+//- 				//- +textbox(type="password" placeholder="Прль" label="asdf" )
+//- 				//- +textbox(placeholder="asdfasf").error
+				
+
+
+
+//- 			h1 Hi gays & #[b girls]
+//- 			p What your name?
+
+//- 			form 
+//- 				input(type="email" placeholder="Yout email...")
+//- 				button(type="submit") Go go go
+			
+			
+
+//- 			.share
+//- 				.share__toggle
+//- 					+icon('3camer','class_icon')
+
+
+
+
+
+
+
+
+
+//- 			+icon('arrow-down')
+//- 			+icon('wallet')
+//- 			.someclass asdf
+//- 				.someclass__inner inner
+//- 			//+webp(name, type='jpg', lazy,  alt)
+
+//- 			img(src="images/_MG_5216.JPG" alt="")
+//- 			+picture('images/_MG_5216', ['webp','jpg'], ['1001px','768px','486px'], ['1x', '2x'], 'lazy')
+//- 			+picture('images/_MG_5216', ['webp','jpg'])
+

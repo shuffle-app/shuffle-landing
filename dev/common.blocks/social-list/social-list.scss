@@ -1,0 +1,31 @@
+/*************************
+*Блок
+*************************/
+.social-list {
+    display: flex;
+    gap: 1rem;
+    
+    .icon {
+        width: 40px;
+        height: 40px;
+        fill: #fff;
+        transition: all $transition;
+        padding: 8px;
+        background: var(--opacity-white-white-10, rgba(255, 255, 255, 0.10));
+        border-radius:$radius_m;
+        backdrop-filter: blur(25px);
+        &:hover {
+            background: var(--opacity-white-white-10, rgba(255, 255, 255, 0.20));
+        }
+    }
+}
+/*************************
+*Элементы
+*************************/
+// padding: 8px;
+// border-radius: 15px;
+// background: var(--opacity-white-white-10, rgba(255, 255, 255, 0.10));
+// backdrop-filter: blur(25px);
+/*************************
+*Модификации
+*************************/

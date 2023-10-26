@@ -1,0 +1,96 @@
+.r-card {
+    border-radius: 80px 0px 5px 5px;
+    position: relative;
+    overflow: hidden;
+    
+    
+    box-shadow: 0px 4px 16px 0px rgba(165, 163, 174, 0.45);
+    
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    width: 500px;
+    height: 252px;
+    transition: box-shadow $transition_l;
+
+    &__header {
+        color: #3a3a3e;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: block;
+        
+    }
+    &__text {
+        color: #2d3645;
+        font-size: 13px;
+        
+        position: relative;
+        z-index: 1;
+            &::before {
+                @extend %ba;
+                background: url(../img/r-card1.svg) 0 0 no-repeat;
+                width: 116px;
+                height: 116px;
+                display: block;
+                position: absolute;
+                z-index: -1;
+                top: 0;left: -2rem;
+            }
+        
+    }
+    &::before {
+        @extend %ba;
+        position: absolute;
+        z-index: -2;
+        left: -80%;
+        top: -80%;
+        width: 300%;
+        height: 300%;
+        // background: conic-gradient(from 45deg at 50% 50%, #D808FA, #E32900, #C6E216, #E32900, #D808FA);
+        background: linear-gradient(45deg, #D808FA, #E32900, #C6E216, #E32900, #D808FA ,#E32900, #C6E216, #E32900, #D808FA);
+        background-position: 0 0;
+        background-size: 400px 400px;
+        z-index: -1;
+        // transition: left $transition_l;
+    }
+    
+    &:after {
+        @extend %ba;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: linear-gradient(281deg, rgba(241, 248, 197, 0.50) 2.92%, rgba(239, 223, 247, 0.50) 53.94%, rgba(248, 219, 213, 0.50) 108.7%), #FFF;
+        top: 0;right: 0px;
+        border-radius: inherit;
+        z-index: -1;
+        transition: all $transition;
+    }
+    &:hover {
+        box-shadow: 0px 10px 20px 0px rgba(165, 163, 174, 0.40);
+        &::before {
+            animation: steam 1.5s linear infinite;
+        }
+        &:after {
+            border-width: 0;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            top: 2px;right: 2px;
+            
+        }  
+    }
+}
+
+.r-card_ext {
+    .r-card{
+        &__text {
+            max-width: 385px;
+        }
+        &__header {
+            height: 49px;
+            background: url(../img/external.svg) right 0 no-repeat;
+            padding-right: 53px;
+        }
+    }
+}
+.r-card_check {
+    height: 288px;
+}

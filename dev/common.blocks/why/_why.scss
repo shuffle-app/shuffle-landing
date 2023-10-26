@@ -1,0 +1,28 @@
+.why {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    background: url(../img/why_bg.svg) center 0 no-repeat;
+    background-attachment: fixed;
+    h2 {
+        margin-bottom: 2rem;
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 2rem;
+
+        @include screen(1110px) {
+            grid-template-columns: repeat(3,1fr);
+        }
+        @include screen(900px) {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+    @include screen(768px) {
+        display: none;
+    }
+}

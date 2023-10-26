@@ -1,0 +1,35 @@
+mixin icon(name,mod)
+	- mod = mod || ''
+	svg(class="icon icon-" + name + ' ' + mod)
+		use(xlink:href="img/sprite/symbol/sprite.svg#" + name)
+
+mixin picture(path, type, media, xsize, lazy)
+	- var src_source = ''
+	- var src_img = ''
+	- var img_class = ''
+	if xsize
+		each x in xsize
+			- src_source += path + '.' + type[0] + ' ' + x + ', '
+	else
+		- src_source = path + '.' + type[0]
+
+	if lazy == 'lazy'
+		- src_img = path + '.' + type[1]
+		- img_class = 'lazy'
+
+
+	picture(class!=attributes.class)
+		if media
+			each m in media
+				source(media="(min-width:"+m+")" decoding="async" srcset=src_source type="image/" + type[0])
+
+		source(srcset=src_source type="image/" + type[0])
+		img(src=path + '.' + type[1] data-src=src_img alt="" class=img_class  decoding="async" )
+
+mixin lazyPicture(path, type,media, xsize)
+	picture(class!=attributes.class)
+		- var lastExt = ''
+		each val in type
+			source(decoding="async" data-srcset=path + "." + val + " 1x, " + path + "2x." + val + " 2x" type="image/" + val)
+			-lastExt = val
+		img(src="img/loader.svg" decoding="async" data-src=path + "." + lastExt alt="some text", class="lazy")
