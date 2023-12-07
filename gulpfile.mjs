@@ -145,42 +145,44 @@ function jsLibs() {
 }
 
 function imageMin() {
-  return gulp
-    .src([
-      config.dir.source.images +
-        "**/*.{JPG,jpeg,JPEG,jpg,gif,png,svg,webp,webP}",
-      "!" + config.dir.source.images + "sprite/*",
-    ])
-    .pipe(gulpWebp())
-    .pipe(gulp.dest(config.dir.target.images))
-    .pipe(
-      gulp.src([
+  return (
+    gulp
+      .src([
         config.dir.source.images +
           "**/*.{JPG,jpeg,JPEG,jpg,gif,png,svg,webp,webP}",
         "!" + config.dir.source.images + "sprite/*",
       ])
-    )
-    .pipe(
-      imagemin([
-        gifsicle({ interlaced: true }),
-        mozjpeg({ quality: 75, progressive: true }),
-        optipng({ optimizationLevel: 5 }),
-        svgo({
-          plugins: [
-            {
-              name: "removeViewBox",
-              active: true,
-            },
-            {
-              name: "cleanupIDs",
-              active: false,
-            },
-          ],
-        }),
-      ])
-    )
+      .pipe(gulpWebp())
+      .pipe(gulp.dest(config.dir.target.images))
+      .pipe(
+        gulp.src([
+          config.dir.source.images +
+            "**/*.{JPG,jpeg,JPEG,jpg,gif,png,svg,webp,webP}",
+          "!" + config.dir.source.images + "sprite/*",
+        ])
+      )
+      // .pipe(
+      //   imagemin([
+      //     gifsicle({ interlaced: true }),
+      //     mozjpeg({ quality: 75, progressive: true }),
+      //     optipng({ optimizationLevel: 5 }),
+      //     svgo({
+      //       plugins: [
+      //         {
+      //           name: "removeViewBox",
+      //           active: true,
+      //         },
+      //         {
+      //           name: "cleanupIDs",
+      //           active: false,
+      //         },
+      //       ],
+      //     }),
+      //   ])
+      // )
 
-    .pipe(gulp.dest(config.dir.target.images));
+      .pipe(gulp.dest(config.dir.target.images))
+  );
 }
 
 function imageMove() {
@@ -316,7 +318,7 @@ gulp.task(
     imageMin,
     svgSpriteBuild,
     scripts,
-    jsLibs,
-    watch
+    jsLibs
+    // watch
   )
 );

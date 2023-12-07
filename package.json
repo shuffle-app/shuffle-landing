@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@artprog/gulp-sass-glob": "^0.1.1",
+    "@babel/preset-env": "^7.23.5",
     "browser-sync": "^2.29.3",
     "del": "^7.1.0",
     "gulp": "^4.0.2",
