@@ -1,0 +1,28 @@
+name: 🚀 Deploy website on main
+on:
+  push:
+    branches: [main]
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm ci
+      - run: npm run build --if-present
+      - name: 📂 SFTP uploader # Upload to SFTP
+        uses: wangyucode/sftp-upload-action@v2.0.2
+        with:
+          host: ${{ secrets.FTP_SERVER }} # Recommended to put the credentials in github secrets.
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          compress: true # Compression
+          forceUpload: false # Optional, Force uploading all files, Default to false(upload only newer files).
+          localDir: "./dist" # Required, Absolute or relative to cwd.
+          remoteDir: "/shuffle.city" # Required, Absolute path only.
+          exclude: ".git*,.DS_Store,.local,.nvm" # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''
