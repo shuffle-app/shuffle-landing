@@ -144,6 +144,17 @@ function jsLibs() {
   );
 }
 
+/**
+ * move content of assets folder to dist
+ * including invisible folders such as .well-known
+ * @returns
+ */
+function assets() {
+  return gulp
+    .src([config.dir.source.dir + "assets/**/*"], { dot: true })
+    .pipe(gulp.dest(config.dir.target.dist));
+}
+
 function imageMin() {
   return (
     gulp
@@ -318,7 +329,8 @@ gulp.task(
     imageMin,
     svgSpriteBuild,
     scripts,
-    jsLibs
+    jsLibs,
+    assets
     // watch
   )
 );
