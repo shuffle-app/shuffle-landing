@@ -66,7 +66,7 @@ function fonts() {
 function pug2html() {
   return gulp
     .src([
-      config.dir.source.pug + "*.pug",
+      config.dir.source.pug + "pages/**/*.pug",
       "!" + config.dir.source.pug + "_*.pug",
     ])
     .pipe(gulpPlumber())
