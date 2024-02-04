@@ -124,6 +124,7 @@ function scripts() {
     .src([config.dir.source.js + "*.js", config.dir.source.blocks + "**/*.js"])
     .pipe(sourcemaps.init())
     .pipe(gulpConcat("main.js"))
+    .pipe(gulpConcat("redirect.js"))
     .pipe(
       gulpBabel({
         presets: ["@babel/env"],

@@ -1,0 +1,65 @@
+extends ../layout/main
+
+block content
+    main 
+        section.download
+            .container
+                div(id="shuffle-logo")
+                .float-img-block
+                    .text
+                        h2.download__header Download 
+                        span.download__slogan.text-gradient Palette yourself
+                        //This only mobile
+                        .phglr.swiper 
+                            .swiper-wrapper 
+                                .swiper-slide
+                                    span.phglr__header Guess your mood and suggest
+                                        br
+                                        | where to go
+                                    +lazyPicture('img/ph1', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                                .swiper-slide
+                                    span.phglr__header Shuffle, find out
+                                        br
+                                        | what you like
+                                    +lazyPicture('img/ph2', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                                .swiper-slide
+                                    span.phglr__header Lovely-touch amazing
+                                        br
+                                        | interaction 
+                                    +lazyPicture('img/ph3', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                                .swiper-slide
+                                    span.phglr__header Look for yours without a
+                                        br
+                                        | selection algorithm
+                                    +lazyPicture('img/ph4', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                        .better-descktop
+                            .text-gradient You'd better check out desktop version
+
+
+                        span.download__lead Smart leisure selection for everyone, everywhere
+                        .apps 
+                            span.apps__header Download app
+                            .apps__links
+                                a(href="#")
+                                    img(src="img/google-play.svg" alt="google play")
+                                a(href="#")
+                                    img(src="img/app-store.svg" alt="app store")
+                                a(href="#")
+                                    img(src="img/app-gallery.svg" alt="app gallery")
+                    //This only descktop
+                    +lazyPicture('img/ph1', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x']).img
+                
+                .features.swiper
+                    .swiper-wrapper
+                        .item
+                            +lazyPicture('img/features/unique-content', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                            | A unique content recommendation system
+                        .item
+                            +lazyPicture('img/features/no-ads', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                            | No third-party intrusive ads
+                        .item 
+                            +lazyPicture('img/features/no-aggregator', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                            | Not an aggregator. Any solution in 2 taps
+                        .item 
+                            +lazyPicture('img/features/create-city', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
+                            | Create a city yourself, register your places and events
