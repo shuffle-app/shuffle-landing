@@ -41,7 +41,7 @@ window.addEventListener("load", function (event) {
     window.location.href =
       "https://apps.apple.com/us/app/shuffle-your-evening/id6449493932";
   } else if (os === "Android") {
-    // TODO: Add Android link
-    return;
+    window.location.href =
+      "https://play.google.com/store/apps/details?id=tech.azart.shuffle";
   }
 });
