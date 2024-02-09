@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 18.x
       - run: npm ci
-      - run: npm run build --if-present
+      - run: npm run build
       - name: 📂 SFTP uploader # Upload to SFTP
         uses: wangyucode/sftp-upload-action@v2.0.2
         with:
@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           compress: true # Compression
-          forceUpload: false # Optional, Force uploading all files, Default to false(upload only newer files).
+          forceUpload: true # Optional, Force uploading all files, Default to false(upload only newer files).
           localDir: "./dist" # Required, Absolute or relative to cwd.
           remoteDir: "/" # Required, Absolute path only.
           exclude: ".git*,.DS_Store,.local,.nvm" # Optional. exclude patterns (glob) like .gitignore, use ',' to split, Default to ''
