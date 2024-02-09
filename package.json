@@ -5,7 +5,10 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "npm run postinstall && gulp build",
+    "postinstall": "npm run pdfjs:copy_assets && npm run pdfjs:copy_index",
+    "pdfjs:copy_assets": "cp -R ./node_modules/@pdftron/pdfjs-express-viewer/public/ ./dev/js/libs/pdfjs",
+    "pdfjs:copy_index": "cp -R ./node_modules/@pdftron/pdfjs-express-viewer/webviewer.min.js ./dev/js/libs/pdfjs/webviewer.min.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,7 @@
   "dependencies": {
     "@artprog/gulp-sass-glob": "^0.1.1",
     "@babel/preset-env": "^7.23.5",
+    "@pdftron/pdfjs-express-viewer": "^8.7.4",
     "browser-sync": "^2.29.3",
     "del": "^7.1.0",
     "gulp": "^4.0.2",

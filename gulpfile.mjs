@@ -10,6 +10,7 @@ const config = {
       pug: "dev/pug/",
       fonts: "dev/fonts/",
       images: "dev/images/",
+      pdfjs: "dev/pdfjs/",
     },
     target: {
       dist: "dist/",
@@ -17,6 +18,7 @@ const config = {
       images: "dist/img/",
       js: "dist/js/",
       fonts: "dist/fonts/",
+      pdfjs: "dist/pdfjs/",
     },
   },
 };
@@ -57,12 +59,6 @@ function clean() {
   return deleteAsync(config.dir.target.dist);
 }
 
-function fonts() {
-  return gulp
-    .src(config.dir.source.fonts + "**/*.*")
-    .pipe(gulp.dest(config.dir.target.fonts));
-}
-
 function pug2html() {
   return gulp
     .src([
@@ -87,6 +83,12 @@ function pug2html() {
         once: true,
       })
     );
+}
+
+function fonts() {
+  return gulp
+    .src(config.dir.source.fonts + "**/*.*")
+    .pipe(gulp.dest(config.dir.target.fonts));
 }
 
 function scss2css() {
@@ -317,6 +319,7 @@ export default gulp.series(
   svgSpriteBuild,
   scripts,
   jsLibs,
+  assets,
   watchDev
 );
 

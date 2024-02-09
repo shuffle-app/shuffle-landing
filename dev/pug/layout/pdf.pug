@@ -1,0 +1,53 @@
+include ../helpers/mixins
+include ../../common.blocks/**/*.pug
+
+block variables
+
+doctype
+html(lang="ru")
+    head(itemscope, itemtype="http://schema.org/WPHeader")
+        meta(charset="utf-8")
+        title(itemprop="headline") #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="keywords", content="key")
+        meta(name="description" content="descr")
+        meta(itemprop="keywords" content="keywords")
+        meta(itemprop="description" content="description")
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+        link(rel="stylesheet" type="text/css" href="/css/style.css?v=1.07")
+
+        script(src='/js/libs/pdfjs/webviewer.min.js')
+    body
+        
+        main(style="padding: 2em")
+            style.
+                #viewer {
+                    height: 100vh;
+                    margin: 0;
+                }
+
+            #viewer
+                nav
+                    a(href="/") Home
+
+            script.
+                WebViewer({
+                    path: '/js/libs/pdfjs',
+                    licenseKey: '5IZ1H862CPmbs1xCpNxD',
+                    initialDoc: '#{docLink}',
+                }, document.getElementById('viewer'))
+                    .then(instance => {
+                        const {Core, UI} = instance;
+                        Core.documentViewer.addEventListener('documentLoaded', () => {
+                            console.log('document loaded');
+                        });
+                        Core.documentViewer.addEventListener('pageNumberUpdated', (pageNumber) => {
+                            console.log(`Page number is: ${pageNumber}`);
+                        });
+                    });
+
+        block scripts
+
