@@ -80,3 +80,15 @@ if (panelSlides) {
     });
   });
 }
+
+window.addEventListener("load", function (event) {
+  this.setTimeout(() => {
+    // if shuffle-logo div has more than two svg child elements, delete the last one
+    const el = document.getElementById("shuffle-logo");
+
+    if (el.children.length > 1) {
+      console.log("yoo");
+      el.removeChild(el.lastChild);
+    }
+  }, 1000);
+});
