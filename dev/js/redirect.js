@@ -38,10 +38,12 @@ window.addEventListener("load", function (event) {
   }
 
   if (os === "iOS") {
-    window.location.href =
-      "https://apps.apple.com/us/app/shuffle-your-evening/id6449493932";
+    window.location.replace(
+      "https://apps.apple.com/us/app/shuffle-your-evening/id6449493932"
+    );
   } else if (os === "Android") {
-    window.location.href =
-      "https://play.google.com/store/apps/details?id=tech.azart.shuffle";
+    window.location.replace(
+      "https://play.google.com/store/apps/details?id=tech.azart.shuffle"
+    );
   }
 });
