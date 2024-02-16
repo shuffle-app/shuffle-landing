@@ -1,8 +1,9 @@
 extends ../layout/main
 
 block variables
-	- var title = "Shuffle"
-
+	- var title = "Shuffle | Palette yourself"
+	- var keywords = "app, ai, shuffle, dubai, entertainments, leisure, events, restaurants, concerts, museums, party, clubs, family holidays, journeys, tourism, cinemas, parks, attractions, for children, app store, google play, social network"
+	- var description = "The smart Shuffle app mechanism will provide you with long-awaited emotions in a simple, user-friendly form. The choice is vast: places, events, interactive actions, meetings. Not easy to decide? With Shuffle, it's no need to decide, it is already done."
 block content
 	header.header
 		.container
@@ -10,7 +11,7 @@ block content
 			//- a(href="#").header__login
 			//- 	+icon('user')
 	main
-		
+		h1(style="visibility:hidden;position:absolute;top:-100%;left:-100%;") Shuffle - smart leisure selection for everyone, everywhere
 		section.color-cards
 			.container
 				.color-card.color-card_yellow 
@@ -376,11 +377,11 @@ block content
 				div.footer__info
 					div 
 						span(style="font-weight: 500") Shuffle 
-						span.text-gradient palette yourself
+						span.text-gradient(style="font-weight: 500") palette yourself
 					div 
 						| azart technologies fzco
 						span 
-							| • 2024
+							|&nbsp;2024
 					div 
 						span.footer__muted
 							| Dubai Silicon Oasis
