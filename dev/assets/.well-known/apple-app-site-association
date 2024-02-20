@@ -4,7 +4,7 @@
       "details": [
       {
         "appID": "X97T5G9V7C.tech.azart.shuffle",
-        "paths": ["*"]
+        "paths": ["/get-shuffle/*", "/get-shuffle", "NOT *"]
       }
     ]
   }
