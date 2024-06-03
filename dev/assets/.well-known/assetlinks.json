@@ -1,9 +1,15 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "tech.azart.shuffle",
-    "sha256_cert_fingerprints":
-    ["84:D2:94:CA:4C:20:71:57:72:8D:E6:68:43:BE:CE:48:AD:15:62:24:94:F4:3C:37:DD:5F:8A:1A:B6:46:CE:B6"]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tech.azart.shuffle",
+      "sha256_cert_fingerprints": [
+        "84:D2:94:CA:4C:20:71:57:72:8D:E6:68:43:BE:CE:48:AD:15:62:24:94:F4:3C:37:DD:5F:8A:1A:B6:46:CE:B6",
+        "6D:55:7C:C6:93:93:D5:DA:A8:88:59:43:F0:D3:A7:12:50:B4:51:3D:FB:FA:E5:98:C0:D2:9E:9C:F0:54:6B:02"
+      ]
+    }
   }
-}]
+]
