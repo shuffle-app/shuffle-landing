@@ -1,11 +1,33 @@
 {
   "applinks": {
-      "apps": [],
-      "details": [
+    "apps": [],
+    "details": [
       {
-        "appID": "X97T5G9V7C.tech.azart.shuffle",
-        "paths": ["/get-shuffle/*", "/get-shuffle", "NOT *"]
+        "appIDs": [
+          "X97T5G9V7C.tech.azart.shuffle"
+        ],
+        "components": [
+          {
+            "#": "no_universal_links",
+            "exclude": true,
+            "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
+          },
+          {
+            "/": "/get-shuffle/*",
+            "comment": "Matches any URL with a path that starts with /get-shuffle/."
+          }
+        ],
+        "paths": [
+          "/get-shuffle/*",
+          "/get-shuffle",
+          "NOT *"
+        ]
       }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "X97T5G9V7C.tech.azart.shuffle"
     ]
   }
 }
