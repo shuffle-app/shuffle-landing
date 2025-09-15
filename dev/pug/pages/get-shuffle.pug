@@ -1,7 +1,7 @@
 extends ../layout/main
 
 block content
-    main 
+    main
         section.download
             .container
                 div(id="shuffle-logo")
@@ -10,8 +10,8 @@ block content
                         h2.download__header Download 
                         span.download__slogan.text-gradient Palette yourself
                         //This only mobile
-                        .phglr.swiper 
-                            .swiper-wrapper 
+                        .phglr.swiper
+                            .swiper-wrapper
                                 .swiper-slide
                                     span.phglr__header Guess your mood and suggest
                                         br
@@ -37,14 +37,14 @@ block content
 
 
                         span.download__lead Smart leisure selection for everyone, everywhere
-                        .apps 
+                        .apps
                             span.apps__header Download app
                             .apps__links
-                                a(href="https://play.google.com/store/apps/details?id=tech.azart.shuffle")
+                                a.app-link(href="https://play.google.com/store/apps/details?id=tech.azart.shuffle" data-store="google_play")
                                     img(src="img/google-play.svg" alt="google play")
-                                a(href="https://apps.apple.com/us/app/shuffle-your-evening/id6449493932")
+                                a.app-link(href="https://apps.apple.com/us/app/shuffle-your-evening/id6449493932" data-store="app_store")
                                     img(src="img/app-store.svg" alt="app store")
-                                a(href="#")
+                                a.app-link(href="#" data-store="app_gallery")
                                     img(src="img/app-gallery.svg" alt="app gallery")
                     //This only descktop
                     //- +lazyPicture('img/ph1', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x']).img
@@ -58,9 +58,114 @@ block content
                         .item
                             +lazyPicture('img/features/no-ads', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
                             | No third-party intrusive ads
-                        .item 
+                        .item
                             +lazyPicture('img/features/no-aggregator', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
                             | Not an aggregator. Any solution in 2 taps
-                        .item 
+                        .item
                             +lazyPicture('img/features/create-city', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
                             | Create a city yourself, register your places and events
+
+block scripts
+    script.
+        // Простая QR аналитика
+        let trackingId = null;
+        const ANALYTICS_PASSWORD = 'Shuffle2024!';
+        const API_BASE = 'https://aviation-backendapi-dev.up.railway.app/v1/database-operations';
+        // const API_BASE = 'http://localhost:3002/v1/database-operations';
+
+        // Определение устройства и браузера
+        function getDeviceInfo() {
+            const userAgent = navigator.userAgent;
+
+            let deviceType = 'desktop';
+            let os = 'Unknown';
+            let browser = 'Unknown';
+
+            // Тип устройства
+            if (/iPad/.test(userAgent)) {
+                deviceType = 'tablet';
+            } else if (/Mobile|Android|iPhone/.test(userAgent)) {
+                deviceType = 'mobile';
+            }
+
+            // OS
+            if (/Windows/.test(userAgent)) os = 'Windows';
+            else if (/Mac OS/.test(userAgent)) os = 'macOS';
+            else if (/Android/.test(userAgent)) os = 'Android';
+            else if (/iOS|iPhone|iPad/.test(userAgent)) os = 'iOS';
+            else if (/Linux/.test(userAgent)) os = 'Linux';
+
+            // Браузер
+            if (/Chrome/.test(userAgent) && !/Edge/.test(userAgent)) browser = 'Chrome';
+            else if (/Firefox/.test(userAgent)) browser = 'Firefox';
+            else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) browser = 'Safari';
+            else if (/Edge/.test(userAgent)) browser = 'Edge';
+
+            return { deviceType, os, browser };
+        }
+
+        // Отслеживание посещения
+        function trackQrVisit() {
+            console.log('password', ANALYTICS_PASSWORD);
+            const deviceInfo = getDeviceInfo();
+
+            const data = {
+                password: ANALYTICS_PASSWORD,
+                ...deviceInfo
+            };
+
+            fetch(`${API_BASE}/shuffle-qr`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(resp => resp.json())
+                .then(result => {
+                    console.log('QR visit tracked:', result);
+                    trackingId = result.id;
+                })
+                .catch(err => {
+                    console.error('QR tracking failed:', err);
+                });
+        }
+
+        // Обновление записи
+        function updateTracking(updates) {
+            if (!trackingId) return;
+
+            fetch(`${API_BASE}/shuffle-qr/update`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    password: ANALYTICS_PASSWORD,
+                    id: trackingId,
+                    ...updates
+                })
+            })
+                .catch(err => {
+                    console.error('Update tracking failed:', err);
+                });
+        }
+
+        // Запускаем отслеживание
+        trackQrVisit();
+
+        // Отслеживаем клики после загрузки страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const appLinks = document.querySelectorAll('.app-link');
+
+            appLinks.forEach((link) => {
+                link.addEventListener('click', function(e) {
+                    const appStore = this.getAttribute('data-store') || 'unknown';
+
+                    updateTracking({
+                        clickedDownload: true,
+                        appStoreClicked: appStore
+                    });
+                });
+            });
+        });

@@ -33,7 +33,7 @@ import gulpBabel from "gulp-babel"; //Преобразует js к более с
 import gulpCleanCss from "gulp-clean-css"; //Минификация CSS
 //import gulpImagemin from'gulp-imagemin';//Минификация изображений
 //import imageminGifsicle from 'imagemin-gifsicle';
-import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+// import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 
 import sourcemaps from "gulp-sourcemaps";
 
