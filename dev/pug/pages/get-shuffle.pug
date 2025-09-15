@@ -7,7 +7,7 @@ block content
                 div(id="shuffle-logo")
                 .float-img-block
                     .text
-                        h2.download__header Download 
+                        h2.download__header Download
                         span.download__slogan.text-gradient Palette yourself
                         //This only mobile
                         .phglr.swiper
@@ -25,7 +25,7 @@ block content
                                 .swiper-slide
                                     span.phglr__header Lovely-touch amazing
                                         br
-                                        | interaction 
+                                        | interaction
                                     +lazyPicture('img/ph3', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
                                 .swiper-slide
                                     span.phglr__header Look for yours without a
@@ -34,7 +34,6 @@ block content
                                     +lazyPicture('img/ph4', ['webp','png'], ['1001px','768px','486px'], ['1x', '2x'])
                         .better-descktop
                             .text-gradient You'd better check out desktop version
-
 
                         span.download__lead Smart leisure selection for everyone, everywhere
                         .apps
@@ -66,106 +65,33 @@ block content
                             | Create a city yourself, register your places and events
 
 block scripts
+    // Google Analytics 4
+    script(async src="https://www.googletagmanager.com/gtag/js?id=G-TCD03JYMYQ")
     script.
-        // Простая QR аналитика
-        let trackingId = null;
-        const ANALYTICS_PASSWORD = 'Shuffle2024!';
-        const API_BASE = 'https://aviation-backendapi-dev.up.railway.app/v1/database-operations';
-        // const API_BASE = 'http://localhost:3002/v1/database-operations';
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TCD03JYMYQ');
 
-        // Определение устройства и браузера
-        function getDeviceInfo() {
-            const userAgent = navigator.userAgent;
-
-            let deviceType = 'desktop';
-            let os = 'Unknown';
-            let browser = 'Unknown';
-
-            // Тип устройства
-            if (/iPad/.test(userAgent)) {
-                deviceType = 'tablet';
-            } else if (/Mobile|Android|iPhone/.test(userAgent)) {
-                deviceType = 'mobile';
-            }
-
-            // OS
-            if (/Windows/.test(userAgent)) os = 'Windows';
-            else if (/Mac OS/.test(userAgent)) os = 'macOS';
-            else if (/Android/.test(userAgent)) os = 'Android';
-            else if (/iOS|iPhone|iPad/.test(userAgent)) os = 'iOS';
-            else if (/Linux/.test(userAgent)) os = 'Linux';
-
-            // Браузер
-            if (/Chrome/.test(userAgent) && !/Edge/.test(userAgent)) browser = 'Chrome';
-            else if (/Firefox/.test(userAgent)) browser = 'Firefox';
-            else if (/Safari/.test(userAgent) && !/Chrome/.test(userAgent)) browser = 'Safari';
-            else if (/Edge/.test(userAgent)) browser = 'Edge';
-
-            return { deviceType, os, browser };
-        }
-
-        // Отслеживание посещения
-        function trackQrVisit() {
-            console.log('password', ANALYTICS_PASSWORD);
-            const deviceInfo = getDeviceInfo();
-
-            const data = {
-                password: ANALYTICS_PASSWORD,
-                ...deviceInfo
-            };
-
-            fetch(`${API_BASE}/shuffle-qr`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-                .then(resp => resp.json())
-                .then(result => {
-                    console.log('QR visit tracked:', result);
-                    trackingId = result.id;
-                })
-                .catch(err => {
-                    console.error('QR tracking failed:', err);
-                });
-        }
-
-        // Обновление записи
-        function updateTracking(updates) {
-            if (!trackingId) return;
-
-            fetch(`${API_BASE}/shuffle-qr/update`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    password: ANALYTICS_PASSWORD,
-                    id: trackingId,
-                    ...updates
-                })
-            })
-                .catch(err => {
-                    console.error('Update tracking failed:', err);
-                });
-        }
-
-        // Запускаем отслеживание
-        trackQrVisit();
-
-        // Отслеживаем клики после загрузки страницы
+    script.
+        // Отслеживание мануальных кликов (для десктопа)
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
             const appLinks = document.querySelectorAll('.app-link');
 
             appLinks.forEach((link) => {
                 link.addEventListener('click', function(e) {
                     const appStore = this.getAttribute('data-store') || 'unknown';
 
-                    updateTracking({
-                        clickedDownload: true,
-                        appStoreClicked: appStore
-                    });
+                    // Google Analytics событие для мануального клика
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'manual_app_download_click', {
+                            'app_store': appStore,
+                            'source': 'qr_code'
+                        });
+                    }
+
+                    console.log('Manual click tracked:', appStore);
                 });
             });
         });
